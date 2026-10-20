@@ -91,17 +91,595 @@ git clone (ссылка на удаленный репозиторий)
 </div>
 
 ### 6. Добавление файла через интерфейс GitHub. Подтягивание изменений в локальный репозиторий
+Для добавления изменений через интерфейс GitHub нужно добавить новый файл. Для этого нужно нажать на Add file и выбрать Create new file (рис. 7). 
+<div align='center'>
+    <img src="скрины/Рисунок5.png" width="70%">
+    <br>
+    Рисунок 7 - Создание нового файла 
+</div>
+<br>
+Затем необходимо написать содержимое файла и дать файлу название, после подтверждения изменений файл будет сохранен в репозитории (рис. 8-9).
+<div align='center'>
+    <img src="скрины/Рисунок6.png" width="70%">
+    <br>
+    Рисунок 8 - Содержимое файла 
+</div>
+<div align='center'>
+    <img src="скрины/Рисунок7.png" width="70%">
+    <br>
+    Рисунок 9 - Файл в репозитории 
+</div>
+<br>
+Для синхронизации локальной копии репозитория с измененниями используется команда:
+
+```bash
+git pull 
+```
+Список файлов в локальном репозитории можно увидеть с помощью команды:
+```bash
+ls -1 
+```
+После синхронизации локальной копии в списке файлов появился добавленный new_file (рис. 10).
+<div align='center'>
+    <img src="скрины/Рисунок8.png" width="70%">
+    <br>
+    Рисунок 10 - Локальный репозиторий до и после добавления new_file 
+</div>
+
 ### 7. Получение истории операций для каждой из веток
+Для того, чтобы увидеть историю коммитов в ветке, используется команда:
+```bash
+git log (название ветки)
+```
+История коммитов в ветке master представлена на рисунке 11.
+<div align='center'>
+    <img src="скрины/Рисунок9.png" width="70%">
+    <br>
+    Рисунок 11 - История изменений в ветке master 
+</div>
+<br>
+Для того, чтобы поменять ветку можно использовать команду:
+
+```bash
+git checkout (название ветки)
+```
+После смены ветки были просмотрены изменения в ветке branch1 (рис. 12).
+<div align='center'>
+    <img src="скрины/Рисунок10.png" width="70%">
+    <br>
+    Рисунок 12 - История изменений в ветке branch1
+</div>
+
 ### 8. Просмотр последних изменений
+Для просмотра последних изменений в ветке использована команда:
+```bash
+git show (название ветки)
+```
+Таким образом была использована команда 'git show branch1' для просмотра изменений в ветке branch1 (рис. 13).
+<div align='center'>
+    <img src="скрины/Рисунок11.png" width="70%">
+    <br>
+    Рисунок 13 - Просмотр изменений в ветке branch1
+</div>
+<br>
+Чтобы посмотреть изменения в ветке master, нужно переключиться на нее. После использовать команду 'git show master' (рис. 14).
+<div align='center'>
+    <img src="скрины/Рисунок12.png" width="70%">
+    <br>
+    Рисунок 14 - Просмотр изменений в ветке master
+</div>
+
 ### 9. Выполнение слияния в ветку master, разрешив конфликт (можно использовать специальные редакторы или графический интерфейс git)
+Для объединения изменений из одной ветки в основную ветку можно использовать команду:
+ ```bash
+git merge (название неосновной ветки)
+```
+После использования команды на ветке branch1 возник конфликт (рис. 15).
+<div align='center'>
+    <img src="скрины/Рисунок13.png" width="70%">
+    <br>
+    Рисунок 15 - Возникновение конфликта
+</div>
+<br>
+Чтобы вывести причину возникновения конфликта на консоль (рис. 16), нужно использовать команду:
+
+```bash
+git diff
+```
+<div align='center'>
+    <img src="скрины/Рисунок14.png" width="70%">
+    <br>
+    Рисунок 16 - Вывод конфликта на консоль
+</div>
+<br>
+Для разрешения конфликта был использован текстовый редактор nano (рис. 17), который можно открыть командой:
+
+```bash
+nano (название файла).txt
+```
+<div align='center'>
+    <img src="скрины/Рисунок15.png" width="70%">
+    <br>
+    Рисунок 17 - Редактирование файла в nano
+</div>
+<br>
+Далее необходимо добавить файл в индекс. Это можно сделать с помощью команды:
+
+```bash
+git add (название файла).txt
+```
+К файлу была применена команда 'git add mergefile.txt'. Затем для проверки, что конфликт исправлен используется команда:
+
+```bash
+git status
+```
+Для фиксирования изменения:
+
+```bash
+git commit -m "Текст комментария"
+```
+Разрешение конфликта представлено на рисунке 18.
+<div align='center'>
+    <img src="скрины/Рисунок16.png" width="70%">
+    <br>
+    Рисунок 18 - Завершение слияния
+</div>
+
 ### 10. Удаление побочной ветки после успешного слияния
+Для удаления побочной ветки после слияния (рис. 19) можно использовать команду:
+
+```bash
+git push origin --delete (название ветки)
+```
+<div align='center'>
+    <img src="скрины/Рисунок17.png" width="70%">
+    <br>
+    Рисунок 19 - Удаление ветки branch1
+</div>
+
 ### 11. Создание изменений и их фиксация с комментариями
+Для создания исзменений можно использовать команду:
+
+```bash
+git echo "Текст" > (название файла).txt
+```
+С помощью использования 'echo' был создан файл 'first.txt'. Чтобы добавить файл в индекс была использована команда:
+
+```bash
+git add (название файла)
+```
+После чего применена команда 'git commit -m "Первый сделан"'. Затем изменеия отпралены на GitHub с помощью команды:
+```bash
+git push
+```
+Добавление первого и второго изменения с комментариями представлены на рисунках 20-21.
+<div align='center'>
+    <img src="скрины/Рисунок18.png" width="70%">
+    <br>
+    Рисунок 20 - Добавление первого изменения
+</div>
+<div align='center'>
+    <img src="скрины/Рисунок19.png" width="70%">
+    <br>
+    Рисунок 21 - Добавление второго изменения
+</div>
+
 ### 12. Создание отката коммита
+Для отката коммита используется команда:
+```bash
+git reset 
+```
+Перед откатом была выведена история коммитов с помощью команды 'git log'(рис. 22).
+<div align='center'>
+    <img src="скрины/Рисунок20.png" width="70%">
+    <br>
+    Рисунок 22 - История коммитов
+</div>
+<br>
+Для отмены последнего коммита была выполнена команда 'git reset HEAD~1' (рис. 23).
+<div align='center'>
+    <img src="скрины/Рисунок21.png" width="70%">
+    <br>
+    Рисунок 23 - Откат последнего коммита
+</div>
+
 ### 13. Создание ветки для отчёта
+Для создания ветки для отчета (рис. 24) была использована команда, создающая новую ветку:
+```bash
+git branch (название ветки) 
+```
+<div align='center'>
+    <img src="скрины/Рисунок22.png" width="70%">
+    <br>
+    Рисунок 24 - Создание ветки Otchot
+</div>
+
 ### 14. Начало оформления отчёта в файле README.md с использованием markdown синтаксиса (https://guides.github.com/features/mastering-markdown/)
+Для удобного форматирования файла README.md для оформления отчета был использован редактор кода VS Code (рис. 25).
+<div align='center'>
+    <img src="скрины/Рисунок24.png" width="70%">
+    <br>
+    Рисунок 25 - Начало офрмления отчета
+</div>
+
 ### 15. Получение истории операций в форматированном виде
+Для получения истории операций в форматированном виде (рис. 26) можно исопльзовать команду:
+```bash
+git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )" 
+```
+<div align='center'>
+    <img src="скрины/Рисунок26.png" width="70%">
+    <br>
+    Рисунок 26 - Истории операций в форматированном виде
+</div>
+
 ### 16. Отправление локальных изменений в сетевое хранилище GitHub
+Для отправки локальных изменений в сетевое хранилище используется команда:
+```bash
+git push 
+```
 
 ## Лог команд
+git config --global user.name "4514 Бастракова В.Б."
+
+git config --global user.email "bastrakovavik@yandex.ru"
+
+cd ~/C:\Users\bastr\OneDrive\Desktop\основы прогр~
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+git clone https://github.com/Viki-bitt/LR6.git
+
+cd LR6/
+
+1s -1
+
+cd LR6/
+
+ls -1
+
+git pull
+
+
+ls -1
+
+git log master
+
+git log branch1
+
+git checkout branch 1
+
+git checkout branch1
+
+git switch branch1
+
+git config --global user.name "4514 Бастракова В.Б."
+
+git config --global user.email "bastrakovavik@yandex.ru"
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+git clone https://github.com/Viki-bitt/LR6
+
+git clone https://github.com/Viki-bitt/LR6
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+git pull
+
+cd LR6/
+
+ls -1
+
+git pull
+
+ls -1
+
+git log master
+
+git checkout branch1
+
+git log branch1
+
+git show branch1
+
+git checkout master
+
+git show master
+
+git merge branch1
+
+git diff
+
+git status
+
+git mergefile.txt
+
+nano mergefile.txt
+
+git add mergefile.txt
+
+git status
+
+git commit -m "Конфликт устранен"
+
+git branch1 -d
+
+git branch -d branch1
+
+git push origin --delete branch1
+
+git branch -d branch1
+
+git push origin --delete branch1
+
+echo "Первый комментарий" > 1comm.txt
+
+git status
+
+git add 1comm.txt
+
+git commit -m "Сделан первый файл"
+
+git push
+
+git pull origin master --rebase
+
+git rebase --continue
+
+git pull origin master
+
+nano 1comm.txt
+
+echo "Первая строка текста" > 1comm.txt
+
+git add 1comm.txt
+
+git commit -m "Добавлен текст"
+
+git add mergefile.txt
+
+git rebase --continue
+
+git status
+
+nano 1comm.txt
+
+git rebase --continue
+
+git status
+
+cat 1comm.txt
+
+git add 1comm.txt
+
+git status
+
+echo "Первый сделан" > 1comm.txt
+
+git add 1comm.txt
+
+git commit -m "Первый добавлен"
+
+git push
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+cd LR6/
+
+git rebase --continue
+
+git rebase --abort
+
+cd LR6/
+
+"C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+cd LR6/
+
+git rebase --abort
+
+rm -rf .git/rebase-merge
+
+git status
+
+echo "Первый комментарий" > 1comm.txt
+
+git status
+
+git add 1comm.txt
+
+git commit -m "Сделан первый"
+
+git push
+
+git pull origin master --rebase
+
+git add .
+
+git rebase --continue
+
+git push origin master
+
+git rebase --continue
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+cd LR6/
+
+git rebase --abort
+
+rm -rf .git/rebase-merge
+
+echo "Первый комментарий" > 1comm.txt
+
+git status
+
+git add 1comm.txt
+
+git commit -m "Сделан первый"
+
+git push
+
+git pull --no-rebase
+
+git push
+
+git rm 1comm.txt
+
+git status
+
+echo "Первый комментарий" > first.txt
+
+git status
+
+git add first.txt
+
+git commit -m "Первый сделан"
+
+git push
+
+echo "Второй комментарий" > second.txt
+
+git status
+
+git add second.txt
+
+git commit -m "Второй сделан"
+
+git push
+
+git log
+
+git reset HEAD~1
+
+git log
+
+git branch Otchot
+
+git branch
+
+git checkout Otchot
+
+git push origin Report
+
+git push origin Otchot
+
+code README.md
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+cd LR6/
+
+git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
+
+git push
+
+git push --set-upstream origin Otchot
+
+git chekout master
+
+git checkout master
+
+git log
+
+git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
+
+git status
+
+git checkout Otchot
+
+git status
+
+git add README.md second.txt
+
+git commit -m "Оформление отчета в README и добавление second.txt"
+
+git push
+
+cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
+
+cd LR6/
+
+git status
+
+git add README.md
+
+git push
+
+git add .
+
+git push
+
+git status
+
+git push
+
+git status
+
+git add .
+
+git status
+
+git push
+
+git commit -m "Обновлен"
+
+git push
+
+git add .
+
+git commit -m"
+
+git commit -m "Обновлен"
+
+git push
+
+git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
+
+git add .
+
+git status
+
+git commit -m "Обнален скрины"
+
+git push
+
 ## История операций в форматированном виде
+c02bb33 -> 10/20/26, 4514 Бастракова В.Б. ( git commit -m )
+
+8c2f54d -> 10/20/26, 4514 Бастракова В.Б. ( Обновлен )
+
+9f1f332 -> 10/20/26, 4514 Бастракова В.Б. ( Оформление отчета в README и добавление second.txt )
+
+b6609b8 -> 10/19/26, 4514 Бастракова В.Б. ( Первый сделан )
+
+063e619 -> 10/19/26, GitHub ( Delete 2comm.txt )
+
+5f1a3d7 -> 10/19/26, GitHub ( Delete 1comm.txt )
+
+4f2a8b0 -> 10/19/26, 4514 Бастракова В.Б. ( Сделан первый )
+
+0f8166c -> 10/19/26, 4514 Бастракова В.Б. ( Первый добавлен )
+
+82955e1 -> 10/19/26, 4514 Бастракова В.Б. ( Заполнил файл )
+
+bfdced8 -> 10/19/26, GitHub ( Create 1comm.txt )
+
+3824bd3 -> 10/19/26, GitHub ( Delete 1comm.txt )
+
+055a6fe -> 10/19/26, GitHub ( Create 2comm.txt )
+
+0890ca5 -> 10/19/26, GitHub ( Create 1comm.txt )
+
+ea6ef1c -> 10/19/26, GitHub ( Create new_file )
+
+921f53b -> 11/21/20, GitHub ( Обновление информации )
+
+c08a654 -> 11/21/20, GitHub ( Файл создан пустым )
+
+3c6e913 -> 11/21/20, GitHub ( Initial commit )
+
 ## Вывод
+В ходе выполнения лабораторной работы были изучены базовые возможности системы управления версиями, получен опыт работы с Git Api и опыт работы с локальным и удаленным репозиторием.
+Был получен практический опыт работы с основными функциями системы контроля версий Git, таких как: клонирование репозитория, слияние веток, разрешение конфликта, удаление веток, просмотр истории имзменений и операций в форматированном виде.
