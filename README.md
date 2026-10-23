@@ -241,7 +241,7 @@ git push origin --delete (название ветки)
 Для создания исзменений можно использовать команду:
 
 ```bash
-git echo "Текст" > (название файла).txt
+echo "Текст" > (название файла).txt
 ```
 С помощью использования 'echo' был создан файл 'first.txt'. Чтобы добавить файл в индекс была использована команда:
 
@@ -324,22 +324,15 @@ git config --global user.name "4514 Бастракова В.Б."
 
 git config --global user.email "bastrakovavik@yandex.ru"
 
-cd ~/C:\Users\bastr\OneDrive\Desktop\основы прогр~
-
 cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
 
 git clone https://github.com/Viki-bitt/LR6.git
 
 cd LR6/
 
-1s -1
-
-cd LR6/
-
 ls -1
 
 git pull
-
 
 ls -1
 
@@ -350,36 +343,6 @@ git log branch1
 git checkout branch 1
 
 git checkout branch1
-
-git switch branch1
-
-git config --global user.name "4514 Бастракова В.Б."
-
-git config --global user.email "bastrakovavik@yandex.ru"
-
-cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-git clone https://github.com/Viki-bitt/LR6
-
-git clone https://github.com/Viki-bitt/LR6
-
-cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-git pull
-
-cd LR6/
-
-ls -1
-
-git pull
-
-ls -1
-
-git log master
-
-git checkout branch1
-
-git log branch1
 
 git show branch1
 
@@ -403,129 +366,9 @@ git status
 
 git commit -m "Конфликт устранен"
 
-git branch1 -d
-
 git branch -d branch1
 
 git push origin --delete branch1
-
-git branch -d branch1
-
-git push origin --delete branch1
-
-echo "Первый комментарий" > 1comm.txt
-
-git status
-
-git add 1comm.txt
-
-git commit -m "Сделан первый файл"
-
-git push
-
-git pull origin master --rebase
-
-git rebase --continue
-
-git pull origin master
-
-nano 1comm.txt
-
-echo "Первая строка текста" > 1comm.txt
-
-git add 1comm.txt
-
-git commit -m "Добавлен текст"
-
-git add mergefile.txt
-
-git rebase --continue
-
-git status
-
-nano 1comm.txt
-
-git rebase --continue
-
-git status
-
-cat 1comm.txt
-
-git add 1comm.txt
-
-git status
-
-echo "Первый сделан" > 1comm.txt
-
-git add 1comm.txt
-
-git commit -m "Первый добавлен"
-
-git push
-
-cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-cd LR6/
-
-git rebase --continue
-
-git rebase --abort
-
-cd LR6/
-
-"C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-cd LR6/
-
-git rebase --abort
-
-rm -rf .git/rebase-merge
-
-git status
-
-echo "Первый комментарий" > 1comm.txt
-
-git status
-
-git add 1comm.txt
-
-git commit -m "Сделан первый"
-
-git push
-
-git pull origin master --rebase
-
-git add .
-
-git rebase --continue
-
-git push origin master
-
-git rebase --continue
-
-cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-cd LR6/
-
-git rebase --abort
-
-rm -rf .git/rebase-merge
-
-echo "Первый комментарий" > 1comm.txt
-
-git status
-
-git add 1comm.txt
-
-git commit -m "Сделан первый"
-
-git push
-
-git pull --no-rebase
-
-git push
-
-git rm 1comm.txt
 
 git status
 
@@ -557,91 +400,13 @@ git log
 
 git branch Otchot
 
-git branch
-
 git checkout Otchot
-
-git push origin Report
 
 git push origin Otchot
 
 code README.md
 
-cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-cd LR6/
-
 git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
-
-git push
-
-git push --set-upstream origin Otchot
-
-git chekout master
-
-git checkout master
-
-git log
-
-git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
-
-git status
-
-git checkout Otchot
-
-git status
-
-git add README.md second.txt
-
-git commit -m "Оформление отчета в README и добавление second.txt"
-
-git push
-
-cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
-cd LR6/
-
-git status
-
-git add README.md
-
-git push
-
-git add .
-
-git push
-
-git status
-
-git push
-
-git status
-
-git add .
-
-git status
-
-git push
-
-git commit -m "Обновлен"
-
-git push
-
-git add .
-
-git commit -m"
-
-git commit -m "Обновлен"
-
-git push
-
-git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
-
-git add .
-
-git status
-
-git commit -m "Обнален скрины"
 
 git push
 
@@ -682,4 +447,5 @@ c08a654 -> 11/21/20, GitHub ( Файл создан пустым )
 
 ## Вывод
 В ходе выполнения лабораторной работы были изучены базовые возможности системы управления версиями, получен опыт работы с Git Api и опыт работы с локальным и удаленным репозиторием.
+
 Был получен практический опыт работы с основными функциями системы контроля версий Git, таких как: клонирование репозитория, слияние веток, разрешение конфликта, удаление веток, просмотр истории имзменений и операций в форматированном виде.
