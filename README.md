@@ -321,130 +321,76 @@ git push
 ```
 
 ## Лог команд
+
+```
 git config --global user.name "4514 Бастракова В.Б."
-
 git config --global user.email "bastrakovavik@yandex.ru"
-
 cd "C:\Users\bastr\OneDrive\Desktop\основы прогр"
-
 git clone https://github.com/Viki-bitt/LR6.git
-
 cd LR6/
-
 ls -1
-
 git pull
-
 ls -1
-
 git log master
-
 git log branch1
-
 git checkout branch 1
-
 git checkout branch1
-
 git show branch1
-
 git checkout master
-
 git show master
-
 git merge branch1
-
 git diff
-
 git status
-
 git mergefile.txt
-
 nano mergefile.txt
-
 git add mergefile.txt
-
 git status
-
 git commit -m "Конфликт устранен"
-
 git branch -d branch1
-
 git push origin --delete branch1
-
 git status
-
 echo "Первый комментарий" > first.txt
-
 git status
-
 git add first.txt
-
 git commit -m "Первый сделан"
-
 git push
-
 echo "Второй комментарий" > second.txt
-
 git status
-
 git add second.txt
-
 git commit -m "Второй сделан"
-
 git push
-
 git log
-
 git reset HEAD~1
-
 git log
-
 git branch Otchot
-
 git checkout Otchot
-
 git push origin Otchot
-
 code README.md
-
 git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
-
 git push
+```
 
 ## История операций в форматированном виде
+
+```
 c02bb33 -> 10/20/26, 4514 Бастракова В.Б. ( git commit -m )
-
 8c2f54d -> 10/20/26, 4514 Бастракова В.Б. ( Обновлен )
-
 9f1f332 -> 10/20/26, 4514 Бастракова В.Б. ( Оформление отчета в README и добавление second.txt )
-
 b6609b8 -> 10/19/26, 4514 Бастракова В.Б. ( Первый сделан )
-
 063e619 -> 10/19/26, GitHub ( Delete 2comm.txt )
-
 5f1a3d7 -> 10/19/26, GitHub ( Delete 1comm.txt )
-
 4f2a8b0 -> 10/19/26, 4514 Бастракова В.Б. ( Сделан первый )
-
 0f8166c -> 10/19/26, 4514 Бастракова В.Б. ( Первый добавлен )
-
 82955e1 -> 10/19/26, 4514 Бастракова В.Б. ( Заполнил файл )
-
 bfdced8 -> 10/19/26, GitHub ( Create 1comm.txt )
-
 3824bd3 -> 10/19/26, GitHub ( Delete 1comm.txt )
-
 055a6fe -> 10/19/26, GitHub ( Create 2comm.txt )
-
 0890ca5 -> 10/19/26, GitHub ( Create 1comm.txt )
-
 ea6ef1c -> 10/19/26, GitHub ( Create new_file )
-
 921f53b -> 11/21/20, GitHub ( Обновление информации )
-
 c08a654 -> 11/21/20, GitHub ( Файл создан пустым )
-
 3c6e913 -> 11/21/20, GitHub ( Initial commit )
+```
 
 ## Вывод
 В ходе выполнения лабораторной работы были изучены базовые возможности системы управления версиями, получен опыт работы с Git Api и опыт работы с локальным и удаленным репозиторием.
